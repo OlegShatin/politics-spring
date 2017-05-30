@@ -15,7 +15,7 @@ import java.time.OffsetDateTime;
 public class Message implements Comparable{
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
     @ManyToOne
     private User sender;
     @ManyToOne
@@ -29,7 +29,7 @@ public class Message implements Comparable{
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -66,7 +66,7 @@ public class Message implements Comparable{
     }
 
     public Message(){};
-    public Message(Long id, String message_text, OffsetDateTime sendingTime) {
+    public Message(int id, String message_text, OffsetDateTime sendingTime) {
         this(message_text,sendingTime);
         this.id = id;
 

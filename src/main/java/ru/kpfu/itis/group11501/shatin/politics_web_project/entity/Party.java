@@ -17,7 +17,7 @@ import java.util.List;
 public class Party {
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
     @Column
     private int seatsInParliament;
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "party")
@@ -29,7 +29,7 @@ public class Party {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -16,7 +16,7 @@ public class Comment implements Comparable<Comment> {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     @ManyToOne
     private Comment parentComment;
     @ManyToOne
@@ -37,7 +37,7 @@ public class Comment implements Comparable<Comment> {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -107,7 +107,7 @@ public class Comment implements Comparable<Comment> {
         this.publicationDateTime = publicationDateTime;
     }
 
-    public Comment(Long id, Comment parentComment, Article article, User user, String text, OffsetDateTime publicationDateTime, int rating) {
+    public Comment(int id, Comment parentComment, Article article, User user, String text, OffsetDateTime publicationDateTime, int rating) {
         this(parentComment, article, user, text, publicationDateTime);
         this.id = id;
         this.rating = rating;

@@ -14,7 +14,7 @@ import java.util.List;
 public class Election {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     @Column
     private OffsetDateTime finishTime;
     private ElectionType type;
@@ -27,7 +27,7 @@ public class Election {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "election")
     private List<ResultItem> ballotItems;
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -56,7 +56,7 @@ public class Election {
     }
 
     public Election() {};
-    public Election(Long id, ElectionType type, OffsetDateTime startTime, OffsetDateTime finishTime) {
+    public Election(int id, ElectionType type, OffsetDateTime startTime, OffsetDateTime finishTime) {
         this.id = id;
         this.type = type;
         this.startTime = startTime;

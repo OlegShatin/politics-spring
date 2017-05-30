@@ -1,10 +1,11 @@
 package ru.kpfu.itis.group11501.shatin.politics_web_project.serviceimpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.kpfu.itis.group11501.shatin.politics_web_project.entity.Candidate;
 import ru.kpfu.itis.group11501.shatin.politics_web_project.entity.Election;
+import ru.kpfu.itis.group11501.shatin.politics_web_project.entity.ResultItem;
 import ru.kpfu.itis.group11501.shatin.politics_web_project.entity.User;
-import ru.kpfu.itis.group11501.shatin.politics_web_project.repositories.CandidateRepository;
-import ru.kpfu.itis.group11501.shatin.politics_web_project.repositories.impls.CandidateRepositoryImpl;
+import ru.kpfu.itis.group11501.shatin.politics_web_project.repository.CandidateRepository;
 import ru.kpfu.itis.group11501.shatin.politics_web_project.service.CandidateService;
 
 /**
@@ -12,20 +13,21 @@ import ru.kpfu.itis.group11501.shatin.politics_web_project.service.CandidateServ
  *         11-501
  */
 public class CandidateServiceImpl implements CandidateService {
+    @Autowired
     CandidateRepository candidateRepository;
     public CandidateServiceImpl(){
-        candidateRepository = new CandidateRepositoryImpl();
+
     }
     @Override
     public Candidate getCandidateForAgent(User agent) {
-        return candidateRepository.getCandidateForAgent(agent);
+        return candidateRepository.findByAgent(agent);
     }
 
     @Override
     public Candidate getCandidateFromElectionById(Election election, Long candidateId) {
-        for (Candidate candidate : election.getCandidates()){
-            if (candidate.getId().equals(candidateId)){
-                return candidate;
+        for (ResultItem item : election.getBallotItems()){
+            if (item.getCandidate().getId().equals(candidateId)){
+                return item.getCandidate();
             }
         }
         return null;

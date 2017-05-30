@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Supporter {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     @Column
     private String name;
     @Column
@@ -21,7 +21,7 @@ public class Supporter {
     @ManyToOne
     private Party party;
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -62,7 +62,7 @@ public class Supporter {
     }
 
 
-    public Supporter(Long id, String name, String surname, String imageSrc) {
+    public Supporter(int id, String name, String surname, String imageSrc) {
 
         this.id = id;
         this.name = name;

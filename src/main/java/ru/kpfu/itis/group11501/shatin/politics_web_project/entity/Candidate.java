@@ -12,7 +12,7 @@ import java.util.List;
 public class Candidate {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     @Column
     private String name;
     @Column
@@ -30,7 +30,7 @@ public class Candidate {
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "candidate")
     private List<ResultItem> results;
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -97,7 +97,7 @@ public class Candidate {
     }
 
     public Candidate(){};
-    public Candidate(Long id, String name, String info, String achievements, String electionProgram, String imageSrc, User agent, Party party) {
+    public Candidate(int id, String name, String info, String achievements, String electionProgram, String imageSrc, User agent, Party party) {
 
         this.id = id;
         this.name = name;

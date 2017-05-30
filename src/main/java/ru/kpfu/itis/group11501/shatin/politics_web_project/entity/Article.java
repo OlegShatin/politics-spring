@@ -15,7 +15,7 @@ import java.util.SortedSet;
 public class Article {
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
     @Column
     private String headline;
     @Column
@@ -26,7 +26,7 @@ public class Article {
     @SortNatural
     private SortedSet<Comment> comments;
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -67,7 +67,7 @@ public class Article {
     }
 
     public Article(){};
-    public Article(long id, String headline, String content, OffsetDateTime publicationDateTime) {
+    public Article(int id, String headline, String content, OffsetDateTime publicationDateTime) {
         this.id = id;
         this.headline = headline;
         this.content = content;

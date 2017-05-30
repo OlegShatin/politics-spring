@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class ResultItem {
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
     @ManyToOne
     private Candidate candidate;
     @Column
@@ -19,7 +19,7 @@ public class ResultItem {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

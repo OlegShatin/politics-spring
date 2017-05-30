@@ -42,6 +42,10 @@ public class User {
     private SortedSet<Message> recipiedMessages;
     @OneToOne(mappedBy = "agent")
     private Candidate candidate;
+    @Column
+    private String passport_series;
+    @Column
+    private String passport_number;
 
     public String getSurname() {
         return surname;
